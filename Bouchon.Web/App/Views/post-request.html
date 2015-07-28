@@ -1,0 +1,62 @@
+﻿<div class="container">
+    <h3>Post request</h3>
+    <h3>&nbsp;</h3>
+    <div class="row">
+        <form role="form">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="itemNameInput">Item Name</label>
+                    <input type="text" placeholder="What do you want to buy ?" id="itemNameInput" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="itemDescInput">Item Description</label>
+                    <input type="text" placeholder="Decribe your item e.g. size, quantity, colour, packaging, how to buy" id="itemDescInput" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="categoryInput">Category</label>
+                    <select class="form-control" id="categoryInput" >
+                        <option value="" disabled selected>Select from list</option>
+                        <option value="Food and Drinks">Food and Drinks</option>
+                        <option value="Collectibles">Collectibles</option>
+                        <option value="Lifestyle Gadgets">Lifestyle Gadgets</option>
+                        <option value="Ladies' Fashion and Accessories">Ladies' Fashion and Accessories</option>
+                        <option value="Men's Fashion and Accessories">Men's Fashion and Accessories</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Beauty Products">Beauty Products</option>
+                        <option value="Household Products">Household Products</option>
+                        <option value="Mums and Babies">Mums and Babies</option>
+                        <option value="Pets">Pets</option>
+                        <option value="Games">Games</option>
+                        <option value="Everything Else">Everything Else</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pictureUpload">Upload a picture</label>
+                    <input type="file" id="pictureUpload">
+                </div>
+                <div class="form-group">
+                    <label for="urlInput">URL</label>
+                    <input type="text" placeholder="Optional" class="form-control" id="urlInput" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="cityToBuyFromInput">City to buy from</label>
+                    <input type="text" placeholder="E.g. Paris, France" class="form-control" id="cityToBuyFromInput" />
+                </div>
+                <div class="form-group">
+                    <label for="dealingLocationInput">Prefered dealing location</label>
+                    <input type="text" placeholder="Where you want to meet to take delivery of item" class="form-control" id="dealingLocationInput" />
+                </div>
+                <div class="form-group">
+                    <label for="priceInput">How much are you willing to pay</label>
+                    <div class="form-inline">
+                        <input type="number" id="priceInput" class="form-control" placeholder="This includes item price + traveller's tip" style="width:79% " />
+                        <input type="text" id="ccyInput" class="form-control" placeholder="currency" style="width:20%" />
+                    </div>
+                </div>
+                <button class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

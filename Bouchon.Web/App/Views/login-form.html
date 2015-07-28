@@ -1,0 +1,26 @@
+﻿<div ng-if="!isLoggedIn()">
+    <div class="alert text-center" ng-if="msg" ng-class="{ 'alert-danger':  msgType == 'error',
+                                                           'alert-info': msgType == 'info' }">
+        <span>{{ msg }}</span>
+    </div>
+    <div class="form">
+        <div class="form-group">
+            <label for="login" class="control-label">Login: </label>
+            <input type="text" class="form-control" name="login" id="login" placeholder="login" ng-model="input.username" />
+        </div>
+        <div class="form-group">
+            <label for="password" class="control-label">Password: </label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="password" ng-model="input.password" />
+        </div>
+        <button class="btn btn-default" ng-click="login()">Login</button>
+        <button class="btn btn-default" ng-click="goToRegister()">Nouveau compte</button>
+        <a ng-click="resetPwd()">Password oublie</a>
+    </div>
+</div>
+<div ng-if="isLoggedIn()">
+    <div class="row">
+        <span ng-if="isAdmin()" class="label label-warning"><a href="#/admin">Administration</a></span>
+        <span>{{ loggedInUsername() }} logged in</span>
+        <button class="btn btn-default" ng-click="logout()">Logout</button>
+    </div>
+</div>

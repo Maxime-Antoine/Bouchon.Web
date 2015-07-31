@@ -69,6 +69,7 @@
     <Content Include="App\Views\inbox.html" />
     <Content Include="App\Views\login-page.html" />
     <Content Include="App\Views\login-form.html" />
+    <Content Include="App\Views\login-bar.html" />
     <Content Include="App\Views\post-request.html" />
     <Content Include="App\Views\post-trip.html" />
     <Content Include="App\Views\register.html" />

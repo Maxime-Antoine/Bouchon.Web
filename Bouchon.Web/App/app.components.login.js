@@ -25,11 +25,8 @@
 						        },
 						        data: $.param({
 						            grant_type: 'password',
-						            scope: 'api',
 						            userName: $scope.input.username,
 						            password: $scope.input.password,
-						            client_id: 'bouchon.website',
-						            client_secret: '1a2a4b72-dda2-4dc8-94df-77f5ef7a84b2'
 						        })
 						    };
 
@@ -86,5 +83,26 @@
 					};
 				}]
 		}
+	});
+
+	app.directive('loginBar', function () {
+	    return {
+	        restrict: 'EA',
+	        templateUrl: 'App/Views/login-bar.html',
+	        controller: ['$scope', 'authSvc', '$location', function ($scope, authSvc, $location) {
+	            $scope.isLoggedIn = function () {
+	                return authSvc.isLoggedIn();
+	            };
+
+	            $scope.isAdmin = authSvc.isAdmin;
+
+	            $scope.logout = function () {
+	                authSvc.deleteAuthToken();
+	                $location.path('/');
+	            };
+
+	            $scope.loggedInUsername = authSvc.loggedInUserName;
+	        }]
+	    }
 	});
 })();

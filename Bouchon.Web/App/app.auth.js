@@ -2,10 +2,7 @@
 	var app = angular.module('bouchon');
 
 	//--------------------------------------- Config -------------------------------------------
-	//API_URL required to be set somewhere else in app config
-
-	//JWT token issuance URL
-	app.constant('API_TOKEN_URL', 'https://localhost:44300/token');
+	//API_URL / API_TOKEN_URL defined in App.js
 
 	//back-end authorization
 	app.config(['$httpProvider', function ($httpProvider) {
@@ -21,7 +18,7 @@
 				if (authorizationResult === 'LoginRequired')
 					$location.path('/login');
 				else if (authorizationResult === 'NotAuthorized')
-					$location.path('/display-message/Acces interdit').replace();
+					$location.path('/display-message/Forbidden').replace();
 			}
 		});
 	}]);

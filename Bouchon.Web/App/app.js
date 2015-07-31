@@ -3,7 +3,12 @@
 
 	// ---------------------------------------- Config ---------------------------------------
 	//
-	app.constant('API_URL', 'api/');
+	//app.constant('API_URL', 'https://localhost:44300/api/'); //local dev
+	app.constant('API_URL', 'https//bouchon-api.azurewebsites.net/api/'); //UAT
+
+	//JWT token issuance URL
+	//app.constant('API_TOKEN_URL', 'https://localhost:44300/token'); //local dev
+	app.constant('API_TOKEN_URL', 'http://bouchon-api.azurewebsites.net/token'); //UAT
 
 	// ---------------------------------------- Services ----------------------------------------
 

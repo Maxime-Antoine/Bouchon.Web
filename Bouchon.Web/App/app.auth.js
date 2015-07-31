@@ -5,7 +5,7 @@
 	//API_URL required to be set somewhere else in app config
 
 	//JWT token issuance URL
-	app.constant('API_TOKEN_URL', 'https://localhost:44300/identity/connect/token');
+	app.constant('API_TOKEN_URL', 'https://localhost:44300/token');
 
 	//back-end authorization
 	app.config(['$httpProvider', function ($httpProvider) {

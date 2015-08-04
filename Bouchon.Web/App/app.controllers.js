@@ -8,8 +8,8 @@
 	}]);
 
 	app.controller('registerCtrl', ['$scope', '$location', 'userSvc', function ($scope, $location, userSvc) {
-		$scope.register = function (username, password, confirmPassword, email) {
-			userSvc.create(username, password, confirmPassword, email)
+		$scope.register = function (user) {
+			userSvc.create(user)
 				   .success(function (data) {
 				   	$location.path('/display-message/Un lien de confirmation a ete envoye par email');
 				   })

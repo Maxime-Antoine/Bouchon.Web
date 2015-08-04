@@ -157,4 +157,20 @@
 			return 'NotAuthorized';
 		};
 	}]);
+
+	//users management service
+	app.service('userSvc', ['$http', 'API_URL', function ($http, API_URL) {
+		var self = this;
+
+		self.create = function (user) {
+			return $http.post(API_URL + 'account/create', {
+				firstName: user.firstName,
+				lastName: user.lastName,
+				username: user.username,
+				password: user.password,
+				confirmPassword: user.confirmPassword,
+				email: user.email
+			});
+		}
+	}]);
 })();

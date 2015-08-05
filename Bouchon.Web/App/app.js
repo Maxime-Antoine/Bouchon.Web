@@ -1,5 +1,5 @@
 ﻿(function () {
-	var app = angular.module('bouchon', ['ngRoute']);
+	var app = angular.module('bouchon', ['ngRoute', 'ngResource']);
 
 	// ---------------------------------------- Config ---------------------------------------
 	//
@@ -31,4 +31,15 @@
 			}
 		}
 	});
+
+
+	// ---------------------------------------- Services ----------------------------------------
+
+	app.factory('Request', ['$resource', 'API_URL', function ($resource, API_URL) {
+		return $resource(API_URL + 'request/:id', { id: '@id' }, {
+			update: {
+				method: 'PUT'
+			}
+		});
+	}]);
 })();

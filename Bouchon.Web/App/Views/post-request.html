@@ -1,62 +1,93 @@
 ﻿<div class="container">
-    <h3>Post request</h3>
-    <h3>&nbsp;</h3>
-    <div class="row">
-        <form role="form">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="itemNameInput">Item Name</label>
-                    <input type="text" placeholder="What do you want to buy ?" id="itemNameInput" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="itemDescInput">Item Description</label>
-                    <input type="text" placeholder="Decribe your item e.g. size, quantity, colour, packaging, how to buy" id="itemDescInput" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="categoryInput">Category</label>
-                    <select class="form-control" id="categoryInput" >
-                        <option value="" disabled selected>Select from list</option>
-                        <option value="Food and Drinks">Food and Drinks</option>
-                        <option value="Collectibles">Collectibles</option>
-                        <option value="Lifestyle Gadgets">Lifestyle Gadgets</option>
-                        <option value="Ladies' Fashion and Accessories">Ladies' Fashion and Accessories</option>
-                        <option value="Men's Fashion and Accessories">Men's Fashion and Accessories</option>
-                        <option value="Sports">Sports</option>
-                        <option value="Beauty Products">Beauty Products</option>
-                        <option value="Household Products">Household Products</option>
-                        <option value="Mums and Babies">Mums and Babies</option>
-                        <option value="Pets">Pets</option>
-                        <option value="Games">Games</option>
-                        <option value="Everything Else">Everything Else</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="pictureUpload">Upload a picture</label>
-                    <input type="file" id="pictureUpload">
-                </div>
-                <div class="form-group">
-                    <label for="urlInput">URL</label>
-                    <input type="text" placeholder="Optional" class="form-control" id="urlInput" />
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="cityToBuyFromInput">City to buy from</label>
-                    <input type="text" placeholder="E.g. Paris, France" class="form-control" id="cityToBuyFromInput" />
-                </div>
-                <div class="form-group">
-                    <label for="dealingLocationInput">Prefered dealing location</label>
-                    <input type="text" placeholder="Where you want to meet to take delivery of item" class="form-control" id="dealingLocationInput" />
-                </div>
-                <div class="form-group">
-                    <label for="priceInput">How much are you willing to pay</label>
-                    <div class="form-inline">
-                        <input type="number" id="priceInput" class="form-control" placeholder="This includes item price + traveller's tip" style="width:79% " />
-                        <input type="text" id="ccyInput" class="form-control" placeholder="currency" style="width:20%" />
-                    </div>
-                </div>
-                <button class="btn btn-default">Submit</button>
-            </div>
-        </form>
-    </div>
+	<h3>Post request</h3>
+	<h3>&nbsp;</h3>
+	<div class="row">
+		<form role="form" name="form" class="form" novalidate>
+			<div class="col-sm-6">
+				<div class="form-group has-feedback" ng-class="{ 'has-success': form.itemName.$dirty && form.itemName.$valid,
+																 'has-error': form.itemName.$dirty && form.itemName.$invalid }">
+					<label for="itemNameInput" class="control-label">Item Name</label>
+					<input type="text" placeholder="What do you want to buy ?" id="itemNameInput" class="form-control"
+						   name="itemName" ng-model="newRequest.itemName" ng-minlength="2" ng-maxlength="75" required />
+					<span class="glyphicon form-control-feedback" ng-class="{ 'glyphicon-ok': form.itemName.$dirty && form.itemName.$valid,
+																			  'glyphicon-remove': form.itemName.$dirty && form.itemName.$invalid }"></span>
+					<span ng-show="form.itemName.$dirty && form.itemName.$invalid" style="color:red">Item name should be between 2 et 75 characters long</span>
+				</div>
+				<div class="form-group has-feedback" ng-class="{ 'has-success': form.itemDescription.$dirty && form.itemDescription.$valid,
+																 'has-error': form.itemDescription.$dirty && form.itemDescription.$invalid }">
+					<label for="itemDescInput" class="control-label">Item Description</label>
+					<input type="text" placeholder="Decribe your item e.g. size, quantity, colour, packaging, how to buy"
+						   id="itemDescInput" class="form-control" ng-model="newRequest.itemDescription" ng-minlength="2"
+						   ng-maxlength="350" name="itemDescription" required />
+					<span class="glyphicon form-control-feedback" ng-class="{ 'glyphicon-ok': form.itemDescription.$dirty && form.itemDescription.$valid,
+																			  'glyphicon-remove': form.itemDescription.$dirty && form.itemDescription.$invalid }"></span>
+					<span ng-show="form.itemDescription.$dirty && form.itemDescription.$invalid" style="color:red">Item description should be between 2 et 350 characters long</span>
+				</div>
+				<div class="form-group">
+					<label for="categoryInput" class="control-label">Category</label>
+					<select class="form-control" id="categoryInput" ng-model="newRequest.category" required>
+						<option value="" disabled selected>Select from list</option>
+						<option value="Food and Drinks">Food and Drinks</option>
+						<option value="Collectibles">Collectibles</option>
+						<option value="Lifestyle Gadgets">Lifestyle Gadgets</option>
+						<option value="Ladies' Fashion and Accessories">Ladies' Fashion and Accessories</option>
+						<option value="Men's Fashion and Accessories">Men's Fashion and Accessories</option>
+						<option value="Sports">Sports</option>
+						<option value="Beauty Products">Beauty Products</option>
+						<option value="Household Products">Household Products</option>
+						<option value="Mums and Babies">Mums and Babies</option>
+						<option value="Pets">Pets</option>
+						<option value="Games">Games</option>
+						<option value="Everything Else">Everything Else</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="pictureUpload" class="control-label">Upload a picture</label>
+					<input type="file" id="pictureUpload" ng-model="newRequest.picture">
+				</div>
+				<div class="form-group">
+					<label for="urlInput" class="control-label">URL</label>
+					<input type="text" placeholder="Optional" class="form-control" id="urlInput" ng-model="newRequest.url"
+						   ng-maxlength="250" />
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group has-feedback" ng-class="{ 'has-success': form.cityToBuyFrom.$dirty && form.cityToBuyFrom.$valid,
+																 'has-error': form.cityToBuyFrom.$dirty && form.cityToBuyFrom.$invalid }">
+					<label for="cityToBuyFromInput" class="control-label">City to buy from</label>
+					<input type="text" placeholder="E.g. Paris, France" class="form-control" id="cityToBuyFromInput"
+						   ng-model="newRequest.cityToBuy" ng-maxlength="50" name="cityToBuyFrom" required />
+					<span class="glyphicon form-control-feedback" ng-class="{ 'glyphicon-ok': form.cityToBuyFrom.$dirty && form.cityToBuyFrom.$valid,
+																			  'glyphicon-remove': form.cityToBuyFrom.$dirty && form.cityToBuyFrom.$invalid }"></span>
+					<span ng-show="form.cityToBuyFrom.$dirty && form.cityToBuyFrom.$invalid" style="color:red">City should be between 2 et 50 characters long</span>
+				</div>
+				<div class="form-group has-feedback" ng-class="{ 'has-success': form.preferedDealingLocation.$dirty && form.preferedDealingLocation.$valid,
+																 'has-error': form.preferedDealingLocation.$dirty && form.preferedDealingLocation.$invalid }">
+					<label for="dealingLocationInput" class="control-label">Prefered dealing location</label>
+					<input type="text" placeholder="Where you want to meet to take delivery of item" class="form-control" name="preferedDealingLocation"
+						   id="dealingLocationInput" ng-model="newRequest.preferedDealingLocation" ng-minlength="2" ng-maxlength="350" required />
+					<span class="glyphicon form-control-feedback" ng-class="{ 'glyphicon-ok': form.preferedDealingLocation.$dirty && form.preferedDealingLocation.$valid,
+																			  'glyphicon-remove': form.preferedDealingLocation.$dirty && form.preferedDealingLocation.$invalid }"></span>
+					<span ng-show="form.preferedDealingLocation.$dirty && form.preferedDealingLocation.$invalid" style="color:red">Dealing location should be between 2 et 350 characters long</span>
+				</div>
+				<div class="form-group has-feedback" ng-class="{ 'has-success': form.proposedPrice.$dirty && form.proposedPrice.$valid && form.ccy.$dirty && form.ccy.$valid,
+																 'has-error': (form.proposedPrice.$dirty && form.proposedPrice.$invalid) || (form.ccy.$dirty && form.ccy.$invalid) }">
+					<label for="priceInput" class="control-label">How much are you willing to pay</label>
+					<div class="form-inline">
+						<input type="number" id="priceInput" class="form-control" name="proposedPrice"
+							   placeholder="This includes item price + traveller's tip" ng-model="newRequest.proposedPrice"
+							   style="width:79% " required />
+						<input type="text" id="ccyInput" class="form-control" placeholder="currency" style="width:20%"
+							   name="ccy" ng-model="newRequest.ccy" ng-minlength="3" ng-maxlength="3" required />
+					</div>
+					<span class="glyphicon form-control-feedback" ng-class="{ 'glyphicon-ok': form.proposedPrice.$dirty && form.proposedPrice.$valid && form.ccy.$dirty && form.ccy.$valid,
+																			  'glyphicon-remove': (form.proposedPrice.$dirty && form.proposedPrice.$invalid) || (form.ccy.$dirty && form.ccy.$invalid) }"></span>
+					<span ng-show="form.proposedPrice.$dirty && form.proposedPrice.$invalid" style="color:red">Price is required</span>
+					<span ng-show="form.ccy.$dirty && form.ccy.$invalid" style="color:red">Ccy should be 3 characters long</span>
+
+				</div>
+				<button class="btn btn-default" ng-click="postNewRequest()">Submit</button>
+			</div>
+		</form>
+	</div>
 </div>

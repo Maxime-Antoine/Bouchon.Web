@@ -28,6 +28,22 @@
 																			  'glyphicon-remove': form.confirmPassword.$dirty && form.confirmPassword.$invalid }"></span>
 					<span ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid" style="color:red">The 2 passwords don't match</span>
 				</div>
+				<div class="form-group has-feedback" ng-class="{ 'has-success': form.firstName.$dirty && form.firstName.$valid,
+																 'has-error': form.firstName.$dirty && form.firtName.$invalid }">
+					<label for="firstName">First name: </label>
+					<input type="text" class="form-control" id="firstName" name="firstName" ng-model="usr.firstName" required />
+					<span class="glyphicon form-control-feedback" ng-class="{ 'glyphicon-ok': form.firstName.$dirty && form.firstName.$valid, 
+																			  'glyphicon-remove': form.firstName.$dirty && form.firstName.$invalid }"></span>
+					<span ng-show="form.firstName.$dirty && form.firstName.$invalid" style="color:red">First name is required</span>
+				</div>
+				<div class="form-group has-feedback" ng-class="{ 'has-success': form.lastName.$dirty && form.lastName.$valid,
+																 'has-error': form.lastName.$dirty && form.lastName.$invalid }">
+					<label for="lastName">First name: </label>
+					<input type="text" class="form-control" id="lastName" name="lastName" ng-model="usr.lastName" required />
+					<span class="glyphicon form-control-feedback" ng-class="{ 'glyphicon-ok': form.lastName.$dirty && form.lastName.$valid,
+																			  'glyphicon-remove': form.lastName.$dirty && form.lastName.$invalid }"></span>
+					<span ng-show="form.lastName.$dirty && form.lastName.$invalid" style="color:red">Last name is required</span>
+				</div>
 				<div class="form-group has-feedback" ng-class="{ 'has-success': form.mail.$dirty && form.mail.$valid,
 																 'has-error': form.mail.$dirty && form.mail.$invalid }">
 					<label for="mail">Email: </label>
@@ -36,7 +52,7 @@
 																			  'glyphicon-remove': form.mail.$dirty && form.mail.$invalid }"></span>
 					<span ng-show="form.mail.$dirty && form.mail.$invalid" style="color:red">Incorrect Email</span>
 				</div>
-				<button type="submit" class="btn btn-default" ng-click="register(usr.login, usr.password, usr.confirmPassword, usr.email)"
+				<button type="submit" class="btn btn-default" ng-click="register(usr)"
 						ng-disabled="form.$invalid">
 					OK
 				</button>

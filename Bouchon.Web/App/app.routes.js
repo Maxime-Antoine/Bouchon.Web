@@ -17,11 +17,12 @@
             .when('/login', {
                 templateUrl: 'App/Views/login-page.html'
             })
-            .when('/request', {
+            .when('/post-request', {
                 templateUrl: 'App/Views/post-request.html',
-                access: {
-                    requiresLogin: true
-                }
+                controller: 'postRequestCtrl'//,
+                //access: {
+                //    requiresLogin: true
+                //}
             })
             .when('/trip', {
                 templateUrl: 'App/Views/post-trip.html',

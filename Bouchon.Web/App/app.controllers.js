@@ -11,10 +11,10 @@
 		$scope.register = function (user) {
 			userSvc.create(user)
 				   .success(function (data) {
-					$location.path('/display-message/Un lien de confirmation a ete envoye par email');
+					    $location.path('/display-message/Un lien de confirmation a ete envoye par email');
 				   })
 				   .error(function (data) {
-					$location.path('/display-message/Une erreur s\'est produite');
+					    $location.path('/display-message/Une erreur s\'est produite');
 				   });
 		};
 	}]);

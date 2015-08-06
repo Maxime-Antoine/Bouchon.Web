@@ -19,10 +19,10 @@
             })
             .when('/post-request', {
                 templateUrl: 'App/Views/post-request.html',
-                controller: 'postRequestCtrl'//,
-                //access: {
-                //    requiresLogin: true
-                //}
+                controller: 'postRequestCtrl',
+                access: {
+                    requiresLogin: true
+                }
             })
             .when('/trip', {
                 templateUrl: 'App/Views/post-trip.html',

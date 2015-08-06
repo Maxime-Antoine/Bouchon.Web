@@ -40,10 +40,6 @@
                     requiresLogin: true
                 }
             })
-            //.when('/display-message/:msg', {
-            //    templateUrl: 'Templates/display-message.html',
-            //    controller: 'displayMessageCtrl'
-            //})
             //.when('/admin', {
             //    templateUrl: 'Templates/admin/home.html',
             //    access: {

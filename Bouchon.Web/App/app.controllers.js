@@ -34,4 +34,16 @@
 			});
 		};
 	}]);
+
+	app.controller('postTripCtrl', ['$scope', 'Trip', function ($scope, Trip) {
+	    $scope.newTrip = new Trip();
+
+	    $scope.postNewTrip = function () {
+	        $scope.newTrip.$save(function () {
+	            alert('Ok')
+	        }, function () {
+	            alert('Error')
+	        });
+	    };
+	}]);
 })();

@@ -42,4 +42,12 @@
 			}
 		});
 	}]);
+
+	app.factory('Trip', ['$resource', 'API_URL', function ($resource, API_URL) {
+		return $resource(API_URL + 'request/:id', { id: '@id' }, {
+			update: {
+				method: 'PUT'
+			}
+		});
+	}]);
 })();

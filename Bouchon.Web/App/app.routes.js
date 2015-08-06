@@ -26,6 +26,7 @@
             })
             .when('/trip', {
                 templateUrl: 'App/Views/post-trip.html',
+                controller: 'postTripCtrl',
                 access: {
                     requiresLogin: true
                 }

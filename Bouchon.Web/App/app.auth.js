@@ -162,13 +162,13 @@
 	app.service('userSvc', ['$http', 'API_URL', function ($http, API_URL) {
 		var self = this;
 
-        var endpoint = 'account'
+		var endpoint = 'account'
 
 		self.create = function (user) {
 			return $http.post(API_URL + endpoint, {
 				firstName: user.firstName,
 				lastName: user.lastName,
-				username: user.username,
+				username: user.login,
 				password: user.password,
 				confirmPassword: user.confirmPassword,
 				email: user.email
